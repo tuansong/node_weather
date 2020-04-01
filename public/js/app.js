@@ -18,11 +18,12 @@ form.addEventListener("submit", e => {
   e.preventDefault();
   const location = input.value;
   let currentWeather;
-
+  weatherOutput.textContent = 'waiting....';
   fetch(`http://localhost:3000/weather?location=${location}`).then(response => {
     response.json().then(data => {
       currentWeather = data.weather;
-      weatherOutput = document.write(currentWeather);
+      // weatherOutput = document.write(currentWeather);
+      weatherOutput.textContent = currentWeather;
     });
   });
 
